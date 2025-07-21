@@ -606,6 +606,36 @@ nav a:last-child:hover {
 .flip-card-back {
     background-color: #e0f7fa;
 }
+/* --- Flip por toque no mobile --- */
+@media (hover: none) and (pointer: coarse) {
+  .flip-card-inner {
+    transition: transform 0.6s;
+  }
+
+  .flip-card.mobile-flip.active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: none; /* impede o hover no mobile */
+  }
+}
+
+/* --- Tornar altura adaptável --- */
+.flip-card {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: 380px;
+}
+
+/* Melhor layout responsivo */
+@media (max-width: 768px) {
+  .flip-card {
+    max-height: none;
+    aspect-ratio: unset;
+  }
+}
+
 
 /* --- ESTILOS DE TÍTULO DE SEÇÃO --- */
 #servicos h2,
