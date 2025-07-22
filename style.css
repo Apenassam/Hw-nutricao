@@ -439,13 +439,10 @@ nav a:last-child:hover {
     margin-right: 15px;
 }
 /*serviços*/
-
-/* --- ESTILOS GERAIS DO CARD --- */
 .flip-card {
     background-color: transparent;
     width: 100%;
-    /* Definir uma altura fixa e um pouco mais generosa, que deve comportar o texto dividido */
-    height: 340px; /* Aumentei para 340px. Você pode experimentar 320px ou 350px conforme necessidade */
+    height: 340px;
     perspective: 1000px;
 }
 
@@ -469,31 +466,27 @@ nav a:last-child:hover {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
-    /* Use 'hidden' para cortar qualquer conteúdo que tente sair da área definida */
-    overflow: hidden; 
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Inclui padding na altura/largura total */
+    box-sizing: border-box;
 }
 
-/* --- ESTILO DA FRENTE DO CARD --- */
 .flip-card-front {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente o conteúdo (imagem + parágrafo) */
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    /* Adiciona uma altura mínima para garantir que o conteúdo não fique muito "esticado" em cards menores */
     min-height: 100%;
 }
 
 .flip-card-front img {
     width: 80%;
-    /* Define uma altura máxima explícita para a imagem para garantir que haja espaço para o texto */
-    max-height: 50%; /* Reduzi para 50% para dar MUITO espaço para o texto */
+    max-height: 50%;
     object-fit: contain;
-    margin-bottom: 8px; /* Reduzi um pouco a margem inferior */
+    margin-bottom: 8px;
 }
 
 .card-content {
@@ -501,37 +494,33 @@ nav a:last-child:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    /* 'flex-grow: 1' é fundamental para que o card-content ocupe o espaço restante */
     flex-grow: 1;
-    /* Usar 'justify-content: center' aqui garante que o conteúdo dentro dele seja centralizado */
-    justify-content: center; 
+    justify-content: center;
 }
 
 .card-content p {
     font-family: 'Poppins', sans-serif;
-    /* Manter ou reduzir um pouco mais o font-size se ainda houver problemas */
-    font-size: 1.15rem; /* Tentei reduzir para 1.15rem. Se ainda for muito, tente 1.1rem */
+    font-size: 1.15rem;
     font-weight: 600;
     color: #333;
     text-align: center;
     letter-spacing: 0.5px;
-    margin-top: 5px; /* Reduzi um pouco a margem superior do parágrafo */
-    line-height: 1.3; /* Reduzi um pouco o line-height para compactar o texto */
-    flex-grow: 1; /* Permite que o parágrafo cresça e ocupe o espaço restante */
-    display: flex; /* Torna o p um flex container para centralizar seu próprio texto */
-    align-items: center; /* Centraliza verticalmente o texto dentro do parágrafo */
-    justify-content: center; /* Centraliza horizontalmente o texto dentro do parágrafo */
+    margin-top: 5px;
+    line-height: 1.3;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* --- ESTILO DO VERSO DO CARD --- */
 .flip-card-back {
     background-color: #e0f7fa;
     color: #333;
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza conteúdo verticalmente */
-    align-items: center; /* Centraliza conteúdo horizontalmente */
+    justify-content: center;
+    align-items: center;
     padding: 30px;
     box-sizing: border-box;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
@@ -564,7 +553,6 @@ nav a:last-child:hover {
     justify-content: center;
 }
 
-/* --- ESTILOS DO BOTÃO WHATSAPP --- */
 .flip-card-back .btn-whatsapp {
     display: inline-flex !important;
     margin-top: 0;
@@ -598,45 +586,43 @@ nav a:last-child:hover {
     color: #fff !important;
 }
 
-/* --- CORES DE FUNDO PADRÃO PARA CARDS --- */
-.flip-card-front {
-    background-color: #ffffff;
-}
-
-.flip-card-back {
-    background-color: #e0f7fa;
-}
-/* --- Flip por toque no mobile --- */
-@media (hover: none) and (pointer: coarse) {
-  .flip-card-inner {
-    transition: transform 0.6s;
-  }
-
-  .flip-card.mobile-flip.active .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: none; /* impede o hover no mobile */
-  }
-}
-
-/* --- Tornar altura adaptável --- */
-.flip-card {
-    height: auto;
-    aspect-ratio: 3 / 4;
-    max-height: 380px;
-}
-
-/* Melhor layout responsivo */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
   .flip-card {
-    max-height: none;
-    aspect-ratio: unset;
+    height: 300px;
+  }
+  .card-content p {
+    font-size: 1rem;
+  }
+  .flip-card-back h5 {
+    font-size: 1.3rem;
+  }
+  .flip-card-back p {
+    font-size: 1rem;
   }
 }
 
-
+@media (max-width: 576px) {
+  .flip-card {
+    height: 280px;
+  }
+  .flip-card-front img {
+    width: 90%;
+  }
+  .card-content p {
+    font-size: 0.95rem;
+  }
+  .flip-card-back h5 {
+    font-size: 1.1rem;
+  }
+  .flip-card-back p {
+    font-size: 0.95rem;
+  }
+  .flip-card-back .btn-whatsapp {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
 /* --- ESTILOS DE TÍTULO DE SEÇÃO --- */
 #servicos h2,
 #depoimentos h2,
@@ -890,41 +876,45 @@ footer i.bi {
 }
 
 
-/* Responsividade melhorada */
 @media (max-width: 1024px) {
-    footer .container {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 20px;
-    }
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+  }
 
-    footer .container > div {
-        width: 100%;
-        max-width: 500px;
-        margin: 15px 0;
-        text-align: center !important;
-    }
+  footer .container > div {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    text-align: center !important;
+  }
 
-    footer img {
-        margin-left: 0 !important;
-        width: 180px;
-        height: auto;
-    }
+  footer img {
+    margin-left: 0 !important;
+    width: 180px;
+    height: auto;
+  }
 
-    footer nav {
-        align-items: center;
-    }
+  footer p,
+  footer a,
+  footer nav {
+    font-size: 0.9rem;
+    text-align: center !important;
+  }
 
-    footer a {
-        display: inline-block;
-        margin: 5px 0;
-    }
+  footer iframe {
+    width: 100% !important;
+    height: 200px !important;
+    display: block;
+    margin: 0 auto;
+  }
 
-    footer iframe {
-        width: 100% !important;
-        height: 200px !important;
-    }
+  footer .bi {
+    font-size: 1.1rem;
+  }
 }
+
 .ebook-section {
   background-color: #fff;
   padding: 50px 40px;
